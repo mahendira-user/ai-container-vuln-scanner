@@ -1,0 +1,267 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>User Login - SBOM System</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Poppins',sans-serif;
+    }
+
+    body{
+        background:#f5f4f8;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 80px;
+        background:linear-gradient(135deg,#2c2a4a,#3b3670);
+        box-shadow:0 6px 25px rgba(0,0,0,0.2);
+    }
+
+    .logo{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        font-size:22px;
+        font-weight:700;
+        color:rgba(255,255,255,0.85);
+    }
+
+    .logo i{
+        color:#a78bfa;
+    }
+
+    .nav-links{
+        display:flex;
+        gap:18px;
+    }
+
+    .nav-links a{
+        display:flex;
+        align-items:center;
+        gap:8px;
+        padding:10px 20px;
+        border-radius:30px;
+        text-decoration:none;
+        font-weight:500;
+        color:rgba(255,255,255,0.9);
+        background:rgba(255,255,255,0.08);
+        border:1px solid rgba(167,139,250,0.25);
+        transition:0.3s;
+    }
+
+    .nav-links i{
+        color:#c4b5fd;
+    }
+
+    .nav-links a:hover{
+        background:#6c4cff;
+        color:#fff;
+    }
+
+    .nav-links a.active{
+        background:#6c4cff;
+        color:#fff;
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:60px 80px;
+    }
+
+    .hero-text{
+        max-width:550px;
+    }
+
+    .hero-text h1{
+        font-size:52px;
+        font-weight:700;
+    }
+
+    .primary{ color:#6c4cff; }
+    .secondary{ color:#111; }
+
+    .hero-text p{
+        margin-top:20px;
+        color:#666;
+        line-height:1.8;
+    }
+
+    /* ===== LOGIN CARD ===== */
+    .login-box{
+        width:380px;
+    }
+
+    .card{
+        background:#fff;
+        padding:35px;
+        border-radius:20px;
+        box-shadow:0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .card h3{
+        text-align:center;
+        margin-bottom:20px;
+        color:#2c2a4a;
+    }
+
+    /* INPUT */
+    .form-control{
+        width:100%;
+        padding:12px;
+        margin-bottom:15px;
+        border-radius:10px;
+        border:1px solid #ddd;
+        outline:none;
+        transition:0.3s;
+    }
+
+    .form-control:focus{
+        border-color:#6c4cff;
+        box-shadow:0 0 8px rgba(108,76,255,0.2);
+    }
+
+    /* BUTTON */
+    .btn-custom{
+        width:100%;
+        padding:12px;
+        background:#5a3df0;
+        border:none;
+        color:#fff;
+        border-radius:25px;
+        font-weight:600;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    .btn-custom:hover{
+        background:#4527cc;
+        box-shadow:0 8px 20px rgba(69,39,204,0.5);
+    }
+
+    /* REGISTER LINK */
+    .register-link{
+        text-align:center;
+        margin-top:15px;
+        font-size:14px;
+    }
+
+    .register-link a{
+        color:#6c4cff;
+        text-decoration:none;
+        font-weight:600;
+    }
+
+    .register-link a:hover{
+        text-decoration:underline;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1000px){
+        .hero{
+            flex-direction:column;
+            text-align:center;
+        }
+
+        .login-box{
+            margin-top:40px;
+        }
+    }
+
+    </style>
+    </head>
+
+    <body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            SBOM AI SYSTEM
+        </div>
+
+    <div class="nav-links">
+
+        <a href="/" >
+            <i class="fa-solid fa-house"></i> Home
+        </a>
+
+        <a href="/admin">
+            <i class="fa-solid fa-user-shield"></i> Admin
+        </a>
+
+        <a href="/hr_login">
+            <i class="fa-solid fa-building"></i> HR
+        </a>
+
+        <a href="/pm_login">
+            <i class="fa-solid fa-briefcase"></i> PM
+        </a>
+
+        <a href="/tl_login">
+            <i class="fa-solid fa-users"></i> Team Lead
+        </a>
+
+        <a href="/login" class="active">
+            <i class="fa-solid fa-user"></i> Developer
+        </a>
+
+    </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <!-- LEFT TEXT -->
+        <div class="hero-text">
+            <h1>
+                <span class="primary">DEVELOPER ACCESS</span><br>
+                <span class="secondary">DEVELOPER LOGIN</span>
+            </h1>
+
+            <p>
+                Login to analyze project dependencies, generate SBOM reports, 
+                and evaluate vulnerability risks using advanced graph-based models.
+            </p>
+        </div>
+
+        <!-- RIGHT LOGIN -->
+        <div class="login-box">
+
+            <div class="card">
+                <h3><i class="fa-solid fa-user"></i> DEVELOPER Login</h3>
+
+                <form method="POST">
+                    <input name="username" class="form-control" placeholder="Username">
+                    <input name="password" type="password" class="form-control" placeholder="Password">
+
+                    <button class="btn-custom">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login
+                    </button>
+                </form>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+    </body>
+    </html>
