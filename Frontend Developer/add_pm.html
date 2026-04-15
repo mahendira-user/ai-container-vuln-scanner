@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add PM - HR Panel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f5fa;
+    padding-top:65px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+    background:rgba(44,42,74,0.9);
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(0,0,0,0.3);
+    z-index:1000;
+}
+
+.nav-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#fff;
+    font-weight:700;
+}
+
+.nav-icon{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#6c4cff,#8b5cf6);
+    color:#fff;
+}
+
+.admin-chip{
+    padding:8px 15px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    color:#eee;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    position:fixed;
+    top:65px;
+    width:240px;
+    height:100%;
+    background:linear-gradient(180deg,#2c2a4a,#3b3670);
+    padding:20px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 15px;
+    border-radius:15px;
+    color:rgba(255,255,255,0.8);
+    text-decoration:none;
+    margin-bottom:12px;
+    background:rgba(255,255,255,0.05);
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background:linear-gradient(135deg,#6c4cff,#8b5cf6);
+    color:#fff;
+    transform:translateX(6px);
+}
+
+.sidebar a.active{
+    background:#6c4cff;
+    color:#fff;
+}
+
+/* ===== MAIN ===== */
+.main{
+    margin-left:260px;
+    padding:30px;
+}
+
+/* ===== FORM CARD ===== */
+.form-card{
+    max-width:500px;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.form-card h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#2c2a4a;
+}
+
+/* INPUT GROUP */
+.input-group{
+    position:relative;
+    margin-bottom:20px;
+}
+
+/* INPUT */
+.input-group input{
+    width:100%;
+    padding:12px 12px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    outline:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+/* FOCUS EFFECT */
+.input-group input:focus{
+    border-color:#6c4cff;
+    box-shadow:0 0 6px rgba(108,76,255,0.3);
+}
+
+/* BUTTON */
+.btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#6c4cff,#8b5cf6);
+    color:#fff;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(108,76,255,0.4);
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    padding:15px;
+    background:#2c2a4a;
+    color:#ccc;
+    margin-left:260px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-title">
+        <div class="nav-icon">
+            <i class="fa-solid fa-user-tie"></i>
+        </div>
+        HR PANEL
+    </div>
+
+    <div class="admin-chip">
+        <i class="fa-solid fa-user"></i> HR
+    </div>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <a href="/hr_dashboard"><i class="fa-solid fa-table"></i> Dashboard</a>
+    <a href="/add_pm" class="active"><i class="fa-solid fa-user-plus"></i> Add PM</a>
+    <a href="/view_results"><i class="fa-solid fa-chart-column"></i> View Results</a>
+    <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <div class="form-card">
+        <h2>Add Project Manager</h2>
+
+        <form method="POST">
+
+            <div class="input-group">
+                <input name="name" placeholder="Name" required>
+            </div>
+
+            <div class="input-group">
+                <input name="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-group">
+                <input name="mobile" placeholder="Mobile" required>
+            </div>
+
+            <div class="input-group">
+                <input name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-group">
+                <input name="password" type="password" placeholder="Password" required>
+            </div>
+
+            <button class="btn">Add PM</button>
+
+        </form>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 <span>SBOM AI SYSTEM</span> | HR Panel
+</div>
+
+</body>
+</html>
