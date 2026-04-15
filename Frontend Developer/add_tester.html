@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add Tester - TL Panel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f5fa;
+    padding-top:65px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+    background:rgba(44,42,74,0.9);
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(0,0,0,0.3);
+    color:#fff;
+    z-index:1000;
+}
+
+.nav-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:700;
+}
+
+.nav-icon{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#6c4cff,#8b5cf6);
+}
+
+.admin-chip{
+    padding:8px 15px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.08);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    position:fixed;
+    top:65px;
+    width:240px;
+    height:100%;
+    background:linear-gradient(180deg,#2c2a4a,#3b3670);
+    padding:20px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 15px;
+    border-radius:15px;
+    color:rgba(255,255,255,0.8);
+    text-decoration:none;
+    margin-bottom:12px;
+    background:rgba(255,255,255,0.05);
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background:linear-gradient(135deg,#6c4cff,#8b5cf6);
+    color:#fff;
+    transform:translateX(6px);
+}
+
+.sidebar a.active{
+    background:#6c4cff;
+    color:#fff;
+}
+
+/* ===== MAIN ===== */
+.main{
+    margin-left:260px;
+    padding:30px;
+}
+
+/* HEADER CARD */
+.header-card{
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* ===== FORM CARD ===== */
+.form-card{
+    max-width:520px;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.form-card h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#2c2a4a;
+}
+
+/* INPUT GROUP */
+.input-group{
+    margin-bottom:18px;
+}
+
+/* LABEL */
+.input-group label{
+    display:block;
+    font-size:13px;
+    margin-bottom:6px;
+    color:#444;
+}
+
+/* INPUT */
+.input-group input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    outline:none;
+    transition:0.3s;
+}
+
+/* FOCUS */
+.input-group input:focus{
+    border-color:#6c4cff;
+    box-shadow:0 0 6px rgba(108,76,255,0.3);
+}
+
+/* BUTTON */
+.btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#6c4cff,#8b5cf6);
+    color:#fff;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(108,76,255,0.4);
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    padding:15px;
+    background:#2c2a4a;
+    color:#ccc;
+    margin-left:260px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .sidebar{ width:200px; }
+    .main{ margin-left:210px; }
+    .footer{ margin-left:210px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-title">
+        <div class="nav-icon">
+            <i class="fa-solid fa-users"></i>
+        </div>
+        TEAM LEADER PANEL
+    </div>
+
+    <div class="admin-chip">
+        <i class="fa-solid fa-user"></i> TL
+    </div>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <a href="/tl_dashboard"><i class="fa-solid fa-table"></i> Dashboard</a>
+    <a href="/add_tester" class="active"><i class="fa-solid fa-user-plus"></i> Add Tester</a>
+    <a href="/assign_to_tester"><i class="fa-solid fa-tasks"></i> Assign Project</a>
+    <a href="/view_results"><i class="fa-solid fa-chart-column"></i> Results</a>
+    <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <div class="header-card">
+        <h2>Add Tester</h2>
+        <p>Create and manage testing team members</p>
+    </div>
+
+    <div class="form-card">
+
+        <form method="POST">
+
+            <div class="input-group">
+                <label>Name</label>
+                <input name="name" placeholder="Enter tester name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input name="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Mobile</label>
+                <input name="mobile" placeholder="Enter mobile number" required>
+            </div>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input name="username" placeholder="Enter username" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input name="password" type="password" placeholder="Enter password" required>
+            </div>
+
+            <button class="btn">Add Tester</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 <span>SBOM AI SYSTEM</span> | TL Panel
+</div>
+
+</body>
+</html>
